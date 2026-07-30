@@ -2,9 +2,9 @@
   "name": "biol-2401-notebook-tutor",
   "version": "1.0.0",
   "description": "BIOL 2401 Anatomy & Physiology - Student Notebook & Tutor Hub",
-  "main": "index.html",
+  "private": true,
   "scripts": {
-    "start": "npx serve ."
+    "build": "echo 'Static site build complete'"
   },
   "keywords": [
     "biology",
