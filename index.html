@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIOL 2401 Anatomy & Physiology - Student Notebook & Tutor Hub</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Caveat:wght@700&family=Hanken+Grotesk:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Spline+Sans+Mono:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+:root {
+  --ink: #16150f;
+  --night: #080808;
+  --night-2: #0f0f0f;
+  --paper: #faf7ef;
+  --paper-2: #f4f1e8;
+  --muted: #85837a;
+  --line: rgba(22, 21, 15, 0.18);
+  --acid: #cdf13b;
+  --green: #00ff87;
+  --blue: #6db3ff;
+  --red: #c0392b;
+  --orange: #ff4f00;
+  --shadow: 0 24px 70px rgba(8, 8, 8, 0.24);
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    linear-gradient(180deg, rgba(205, 241, 59, 0.34) 0 7rem, transparent 7rem),
+    radial-gradient(circle at 72% 14%, rgba(205, 241, 59, 0.22), transparent 24rem),
+    linear-gradient(180deg, #efece2, #e8e4d6 52%, #f2efe7);
+  color: var(--ink);
+  font-family: "Hanken Grotesk", system-ui, sans-serif;
+  font-size: 16px;
+}
+
+body::before {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  content: "";
+  opacity: 0.16;
+  background-image:
+    linear-gradient(rgba(22, 21, 15, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(22, 21, 15, 0.12) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+.top-strip {
+  overflow: hidden;
+  background: var(--acid);
+  color: var(--night);
+  border-bottom: 1px solid rgba(22, 21, 15, 0.18);
+}
+
+.marquee {
+  display: flex;
+  width: max-content;
+  animation: scroll-left 24s linear infinite;
+}
+
+.marquee span {
+  padding: 0.65rem 1.35rem;
+  font-family: "Spline Sans Mono", monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.marquee span::after {
+  padding-left: 1.35rem;
+  color: rgba(22, 21, 15, 0.55);
+  content: "/";
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: min(1180px, calc(100% - 2rem));
+  margin: 0.8rem auto 0;
+  padding: 0.7rem;
+  color: var(--ink);
+  background: rgba(250, 247, 239, 0.86);
+  border: 1px solid rgba(22, 21, 15, 0.18);
+  border-radius: 100px;
+  backdrop-filter: blur(18px);
+  box-shadow: 0 10px 36px rgba(8, 8, 8, 0.12);
+}
+
+.brand,
+.site-header nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.brand {
+  font-family: "Bricolage Grotesque", system-ui, sans-serif;
+  font-weight: 800;
+}
+
+.brand-mark {
+  display: grid;
+  width: 2.25rem;
+  height: 2.25rem;
+  place-items: center;
+  color: var(--paper);
+  background: var(--night);
+  border-radius: 50%;
+  font-family: "Spline Sans Mono", monospace;
+  font-size: 0.8rem;
+}
+
+.site-header nav a {
+  padding: 0.55rem 0.8rem;
+  border-radius: 100px;
+  color: rgba(22, 21, 15, 0.66);
+  font-size: 0.92rem;
+  transition: background 180ms ease, color 180ms ease;
+}
+
+.site-header nav a:hover {
+  color: var(--paper);
+  background: var(--night);
+}
+
+main {
+  width: min(1180px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(290px, 390px);
+  gap: 1.5rem;
+  align-items: stretch;
+  min-height: 72vh;
+  padding: 5.5rem 0 2rem;
+}
+
+.hero-copy {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 34rem;
+  padding: clamp(1.25rem, 4vw, 3.5rem) clamp(1.25rem, 4vw, 3.5rem) clamp(1.25rem, 4vw, 3.5rem) clamp(3.9rem, 6vw, 5.4rem);
+  color: var(--ink);
+  background:
+    linear-gradient(90deg, rgba(192, 57, 43, 0.26) 3.15rem, transparent 3.15rem 3.3rem, transparent 100%),
+    repeating-linear-gradient(180deg, transparent 0 3.05rem, rgba(22, 21, 15, 0.1) 3.05rem 3.12rem),
+    linear-gradient(135deg, rgba(250, 247, 239, 0.96), rgba(232, 228, 214, 0.92)),
+    repeating-linear-gradient(-6deg, rgba(22, 21, 15, 0.06) 0 1px, transparent 1px 18px);
+  border: 1px solid rgba(22, 21, 15, 0.18);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.hero-copy::before {
+  position: absolute;
+  top: 1.35rem;
+  bottom: 1.35rem;
+  left: 0.95rem;
+  width: 1.35rem;
+  content: "";
+  background:
+    radial-gradient(circle at 50% 1rem, #e8e4d6 0 0.28rem, rgba(22, 21, 15, 0.56) 0.3rem 0.43rem, transparent 0.45rem)
+      0 0 / 1.35rem 3.05rem repeat-y;
+  filter: drop-shadow(0.35rem 0 0 rgba(22, 21, 15, 0.14));
+}
+
+.hero-copy::after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 2.45rem;
+  width: 0.75rem;
+  content: "";
+  background:
+    repeating-linear-gradient(180deg, transparent 0 1.16rem, rgba(22, 21, 15, 0.24) 1.16rem 1.34rem, transparent 1.34rem 3.05rem);
+  border-right: 1px solid rgba(22, 21, 15, 0.12);
+  opacity: 0.7;
+}
+
+.hero-copy > * {
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow,
+.panel-kicker {
+  margin: 0 0 0.85rem;
+  color: var(--muted);
+  font-family: "Spline Sans Mono", monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.hero-copy .eyebrow {
+  color: var(--acid);
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  max-width: 8.6ch;
+  margin-bottom: 1rem;
+  font-family: "Bricolage Grotesque", system-ui, sans-serif;
+  font-size: clamp(3.7rem, 9.2vw, 7.2rem);
+  font-weight: 800;
+  line-height: 0.86;
+}
+
+h1::after {
+  display: block;
+  width: 9rem;
+  height: 0.62rem;
+  margin-top: 1.1rem;
+  background: var(--acid);
+  content: "";
+  transform: rotate(-1.5deg);
+}
+
+h1::before {
+  display: block;
+  margin-bottom: 0.45rem;
+  color: rgba(22, 21, 15, 0.54);
+  content: "BIOL 2401 & 2402";
+  font-family: "Caveat", cursive;
+  font-size: clamp(2rem, 4vw, 3.8rem);
+  font-weight: 700;
+  line-height: 0.8;
+  transform: rotate(-1.2deg);
+}
+
+.hero-lede {
+  max-width: 42rem;
+  color: rgba(22, 21, 15, 0.72);
+  font-size: clamp(1.12rem, 2vw, 1.45rem);
+  line-height: 1.35;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.1rem;
+}
+
+.button {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--ink);
+  border-radius: 100px;
+  cursor: pointer;
+  font-weight: 800;
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button.primary {
+  padding: 0.75rem 1rem;
+  color: var(--night);
+  background: var(--acid);
+  box-shadow: 0 10px 0 rgba(205, 241, 59, 0.18);
+}
+
+.button.secondary,
+.button.ghost {
+  padding: 0.75rem 1rem;
+  color: var(--ink);
+  background: transparent;
+  border-color: rgba(22, 21, 15, 0.28);
+}
+
+.button.ghost {
+  color: var(--ink);
+  border-color: var(--line);
+}
+
+.hero-panel,
+.next-card {
+  padding: 1.2rem;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.hero-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 34rem;
+}
+
+.progress-orbit {
+  position: relative;
+  display: grid;
+  min-height: 18rem;
+  place-items: center;
+}
+
+.progress-orbit svg {
+  position: absolute;
+  width: min(78%, 16rem);
+  transform: rotate(-90deg);
+}
+
+.progress-orbit circle {
+  fill: none;
+  stroke-width: 10;
+}
+
+.progress-orbit .track {
+  stroke: rgba(22, 21, 15, 0.1);
+}
+
+.progress-orbit .meter {
+  stroke: var(--orange);
+  stroke-linecap: round;
+  stroke-dasharray: 301.59;
+  stroke-dashoffset: 301.59;
+  transition: stroke-dashoffset 500ms ease;
+}
+
+.progress-orbit div {
+  display: grid;
+  place-items: center;
+}
+
+.progress-orbit strong {
+  font-family: "Bricolage Grotesque", system-ui, sans-serif;
+  font-size: clamp(3rem, 7vw, 5rem);
+  line-height: 0.9;
+}
+
+.progress-orbit span,
+.mini-stats,
+.activity-meta,
+.date-label {
+  font-family: "Spline Sans Mono", monospace;
+}
+
+.progress-orbit span {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.mini-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.7rem;
+}
+
+.mini-stats span {
+  padding: 1rem;
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+.stats-band {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.8rem;
+  margin: 1rem 0 3rem;
+}
+
+.timer-band {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 1px;
+  margin: 0.5rem 0 1rem;
+  color: var(--paper);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--ink);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.timer-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  padding: 1.3rem 1.4rem;
+  background: var(--night);
+}
+
+.timer-cell .panel-kicker {
+  margin: 0;
+  color: var(--acid);
+}
+
+.timer-now #liveClock {
+  font-family: "Spline Sans Mono", monospace;
+  font-size: clamp(2rem, 5vw, 2.9rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+.timer-now #liveDate {
+  color: rgba(250, 247, 239, 0.7);
+  font-family: "Spline Sans Mono", monospace;
+  font-size: 0.82rem;
+}
+
+.countdown {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.55rem;
+}
+
+.countdown > div:not(.cd-sep) {
+  display: grid;
+  justify-items: center;
+  min-width: 3.2rem;
+  padding: 0.55rem 0.4rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+}
+
+.countdown b {
+  font-family: "Bricolage Grotesque", system-ui, sans-serif;
+  font-size: clamp(1.8rem, 4.5vw, 2.7rem);
+  font-weight: 800;
+  line-height: 0.95;
+  font-variant-numeric: tabular-nums;
+}
+
+.countdown span {
+  color: rgba(250, 247, 239, 0.62);
+  font-family: "Spline Sans Mono", monospace;
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.cd-sep {
+  padding-bottom: 1rem;
+  color: rgba(205, 241, 59, 0.7);
+  font-family: "Bricolage Grotesque", system-ui, sans-serif;
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+.countdown.finished > div:not(.cd-sep) {
+  opacity: 0.4;
+}
+
+.timer-note {
+  margin: 0;
+  color: rgba(250, 247, 239, 0.6);
+  font-family: "Spline Sans Mono", monospace;
+  font-size: 0.72rem;
+}
+
+.timer-progress {
+  justify-content: flex-start;
+}
+
+.time-bar {
+  height: 0.7rem;
+  margin-top: 0.2rem;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.time-bar span {
+  display: block;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, var(--acid), var(--green));
+  border-radius: 100px;
+  transition: width 600ms ease;
+}
+
+.time-meta {
+  display: flex;
+  justify-content: space-between;
+  color: var(--paper);
+  font-family: "Spline Sans Mono", monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.time-meta #timePercent {
+  color: var(--acid);
+}
+
+.time-next {
+  margin: 0;
+  color: rgba(250, 247, 239, 0.72);
+  font-family: "Spline Sans Mono", monospace;
+  font-size: 0.74rem;
+  line-height: 1.4;
+}
+
+.stats-band article {
+  min-height: 9.5rem;
+  padding: 1rem;
+  color: var(--ink);
+  background: rgba(250, 247, 239, 0.78);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.stats-band span {
+  display: block;
+  margin-bottom: 1.8rem;
+  color: var(--night);
+  font-family: "Bricolage Grotesque", system-ui, sans-serif;
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 800;
+  line-height: 0.9;
+}
+
+.stats-band p {
+  margin: 0;
+  color: rgba(22, 21, 15, 0.62);
+  font-weight: 700;
+}
+
+.section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 2rem 0 1rem;
+}
+
+.section-heading h2 {
+  max-width: 12ch;
+  margin: 0;
+  font-family: "Bricolage Grotesque", system-ui, sans-serif;
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  line-height: 0.9;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: minmax(14rem, 1fr) minmax(0, 2fr) minmax(10rem, 0.7fr) auto;
+  gap: 0.7rem;
+  align-items: end;
+  padding: 0.8rem;
+  background: rgba(250, 247, 239, 0.78);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 14px 36px rgba(22, 21, 15, 0.08);
+  backdrop-filter: blur(16px);
+}
+
+.search-field,
+.select-field {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.search-field span,
+.select-field span {
+  color: var(--muted);
+  font-family: "Spline Sans Mono", monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+input,
+select {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0 0.9rem;
+  color: var(--ink);
+  background: #fffdf8;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  outline: none;
+}
+
+input:focus,
+select:focus {
+  border-color: var(--orange);
+  box-shadow: 0 0 0 3px rgba(255, 79, 0, 0.12);
+}
+
+.segmented {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.segmented button {
+  min-height: 2.75rem;
+  padding: 0 0.8rem;
+  color: var(--ink);
+  background: #fffdf8;
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.segmented button.active {
+  color: var(--paper);
+  background: var(--night);
+  border-color: var(--ink);
+}
+
+.notebook-section {
+  margin-bottom: 4rem;
+}
+
+.notebook-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.8rem;
+}
+
+.notebook-card {
+  position: relative;
+  min-height: 13rem;
+  padding: 1rem;
+  background: var(--night);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  color: var(--paper);
+  overflow: hidden;
+}
+
+.notebook-card::after {
+  position: absolute;
+  right: -1rem;
+  bottom: -1.7rem;
+  color: rgba(205, 241, 59, 0.18);
+  content: "LM";
+  font-family: "Bricolage Grotesque", system-ui, sans-serif;
+  font-size: 7rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.notebook-card .activity-meta {
+  color: var(--acid);
+}
+
+.notebook-card h3 {
+  position: relative;
+  z-index: 1;
+  margin: 1.5rem 0 0.6rem;
+  font-family: "Bricolage Grotesque", system-ui, sans-serif;
+  font-size: 1.4rem;
+}
+
+.notebook-card p {
+  position: relative;
+  z-index: 1;
+  color: rgba(250, 247, 239, 0.72);
+}
+
+.site-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: min(1180px, calc(100% - 2rem));
+  margin: 0 auto 1rem;
+  padding: 1rem;
+  color: var(--paper);
+  background: var(--night);
+  border-radius: 8px;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+.footer-title {
+  color: var(--acid);
+  font-family: "Spline Sans Mono", monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.site-footer img {
+  width: 4.8rem;
+  height: 4.8rem;
+  object-fit: cover;
+  border: 2px solid var(--acid);
+  border-radius: 50%;
+}
+
+.empty-state {
+  padding: 2rem;
+  color: var(--muted);
+  background: rgba(250, 247, 239, 0.7);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+.reveal {
+  animation: rise-in 720ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.delay-1 {
+  animation-delay: 120ms;
+}
+
+@keyframes scroll-left {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 980px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .hero,
+  .hero-copy,
+  .hero-panel {
+    min-height: auto;
+  }
+
+  .controls {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-band,
+  .notebook-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .timer-band {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .timer-progress {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 680px) {
+  main,
+  .site-header,
+  .site-footer {
+    width: min(100% - 1rem, 1180px);
+  }
+
+  .site-header {
+    align-items: stretch;
+    border-radius: 8px;
+  }
+
+  .site-header nav {
+    display: none;
+  }
+
+  .hero {
+    padding-top: 2rem;
+  }
+
+  h1 {
+    font-size: clamp(3.2rem, 16vw, 4.8rem);
+  }
+
+  .stats-band,
+  .notebook-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .timer-band {
+    grid-template-columns: 1fr;
+  }
+
+  .site-footer {
+    align-items: start;
+  }
+}
+
+
+/* Override title content to reflect BIOL 2401 only */
+h1::before {
+    content: "BIOL 2401" !important;
+}
+
+/* Custom enhancements for dual links & card interactions */
+.notebook-card .card-badge {
+    display: inline-block;
+    padding: 0.25rem 0.6rem;
+    background: rgba(205, 241, 59, 0.15);
+    color: var(--acid);
+    border: 1px solid rgba(205, 241, 59, 0.3);
+    border-radius: 100px;
+    font-family: "Spline Sans Mono", monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.notebook-card .card-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-top: 1.2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.link-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.6rem 0.9rem;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: all 180ms ease;
+}
+
+.link-btn.slo-btn {
+    background: var(--acid);
+    color: var(--night);
+    border: 1px solid var(--acid);
+}
+
+.link-btn.slo-btn:hover {
+    background: #bce028;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(205, 241, 59, 0.25);
+}
+
+.link-btn.tutor-btn {
+    background: rgba(109, 179, 255, 0.15);
+    color: var(--blue);
+    border: 1px solid rgba(109, 179, 255, 0.4);
+}
+
+.link-btn.tutor-btn:hover {
+    background: rgba(109, 179, 255, 0.3);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(109, 179, 255, 0.2);
+}
+
+.card-check-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+}
+
+.chapter-check {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: "Spline Sans Mono", monospace;
+    font-size: 0.75rem;
+    color: rgba(250, 247, 239, 0.7);
+    cursor: pointer;
+}
+
+.chapter-check input {
+    width: 1.1rem;
+    height: 1.1rem;
+    cursor: pointer;
+    accent-color: var(--acid);
+}
+    </style>
+</head>
+<body>
+
+    <!-- Top Marquee Bar -->
+    <div class="top-strip">
+        <div class="marquee">
+            <span>BIOL 2401 Anatomy & Physiology I</span>
+            <span>Fall 2026 Semester: Aug 24 - Dec 8, 2026</span>
+            <span>SLO Custom Notebooks</span>
+            <span>Interactive Study & Learn Tutors</span>
+            <span>Dr. Victor Garcia Martínez</span>
+            <span>Lone Star College Faculty</span>
+            <span>BIOL 2401 Anatomy & Physiology I</span>
+            <span>Fall 2026 Semester: Aug 24 - Dec 8, 2026</span>
+            <span>SLO Custom Notebooks</span>
+            <span>Interactive Study & Learn Tutors</span>
+            <span>Dr. Victor Garcia Martínez</span>
+            <span>Lone Star College Faculty</span>
+        </div>
+    </div>
+
+    <!-- Sticky Navigation Header -->
+    <header class="site-header">
+        <div class="brand">
+            <div class="brand-mark">A&P</div>
+            <span>BIOL 2401 Notebook Hub</span>
+        </div>
+        <nav>
+            <a href="#hero">Overview</a>
+            <a href="#controls">Search & Filter</a>
+            <a href="#chapters">Chapter Modules</a>
+            <a href="#credits">Credits</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="hero">
+            <div class="hero-copy reveal">
+                <p class="eyebrow">A&P Interactive Learning Repository</p>
+                <h1>STUDENT NOTEBOOKS & TUTORS</h1>
+                <p class="hero-lede">
+                    A dual-purpose active study hub for BIOL 2401 Anatomy & Physiology I students (Fall 2026 Schedule: August 24 – December 8, 2026). Build customized notebooks tailored to specific Student Learning Outcomes (SLOs) using NotebookLM, and reinforce your mastery with AI-powered Study & Learn tutors powered by Gemini.
+                </p>
+                <div class="hero-actions">
+                    <a href="#chapters" class="button primary">Explore 12 Chapter Modules</a>
+                    <button class="button secondary" onclick="filterType('slo')">SLO Notebooks</button>
+                    <button class="button ghost" onclick="filterType('tutor')">Study & Learn Tutors</button>
+                </div>
+            </div>
+
+            <div class="hero-panel reveal delay-1">
+                <div>
+                    <p class="panel-kicker">Overall Course Mastery</p>
+                    <div class="progress-orbit">
+                        <svg viewBox="0 0 120 120">
+                            <circle class="track" cx="60" cy="60" r="48"></circle>
+                            <circle class="meter" id="progressMeter" cx="60" cy="60" r="48"></circle>
+                        </svg>
+                        <div>
+                            <strong id="progressPercent">0%</strong>
+                            <span>Completed</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mini-stats">
+                    <span><strong id="completedCount">0</strong> / 12 Finished</span>
+                    <span><strong>24</strong> Active Links</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Course Timer & Clock Band -->
+        <section class="timer-band">
+            <div class="timer-cell timer-now">
+                <p class="panel-kicker">Live Time & Date</p>
+                <div id="liveClock">--:--:-- --</div>
+                <div id="liveDate">Loading local time...</div>
+            </div>
+            <div class="timer-cell">
+                <p class="panel-kicker" id="timerKicker">Fall 2026 Semester Target</p>
+                <div class="countdown" id="countdown">
+                    <div><b id="cdDays">00</b><span>Days</span></div>
+                    <div class="cd-sep">:</div>
+                    <div><b id="cdHours">00</b><span>Hours</span></div>
+                    <div class="cd-sep">:</div>
+                    <div><b id="cdMins">00</b><span>Mins</span></div>
+                    <div class="cd-sep">:</div>
+                    <div><b id="cdSecs">00</b><span>Secs</span></div>
+                </div>
+                <p class="timer-note" id="timerNote">Fall 2026: Aug 24 - Dec 8, 2026</p>
+            </div>
+            <div class="timer-cell timer-progress">
+                <p class="panel-kicker">Progress Meter</p>
+                <div class="time-meta">
+                    <span>Modules Checked</span>
+                    <span id="timePercent">0%</span>
+                </div>
+                <div class="time-bar">
+                    <span id="progressBarFill" style="width: 0%;"></span>
+                </div>
+                <p class="time-next" id="nextModuleText">Next: CH01 - Introduction to AP</p>
+            </div>
+        </section>
+
+        <!-- Stats Band -->
+        <div class="stats-band">
+            <article>
+                <span>12</span>
+                <p>BIOL 2401 Chapters</p>
+            </article>
+            <article>
+                <span>12</span>
+                <p>SLO NotebookLM Links</p>
+            </article>
+            <article>
+                <span>12</span>
+                <p>Gemini AI Tutors</p>
+            </article>
+            <article>
+                <span>4</span>
+                <p>Lecture Exams</p>
+            </article>
+        </div>
+
+        <!-- Controls / Search & Filters -->
+        <section class="controls" id="controls">
+            <div class="search-field">
+                <span>Search Chapter</span>
+                <input type="text" id="searchInput" placeholder="Search by topic, chapter number, or title..." oninput="renderChapters()">
+            </div>
+            <div class="select-field">
+                <span>Filter Resource Mode</span>
+                <select id="resourceFilter" onchange="renderChapters()">
+                    <option value="all">All Mode Resources (SLO Notebooks & Tutors)</option>
+                    <option value="slo">SLO Custom Notebooks Only (NotebookLM)</option>
+                    <option value="tutor">Study & Learn Tutors Only (Gemini)</option>
+                </select>
+            </div>
+            <div class="select-field">
+                <span>Lecture Exam / Unit Filter</span>
+                <select id="unitFilter" onchange="renderChapters()">
+                    <option value="all">All Exams (CH 01 - CH 12)</option>
+                    <option value="exam1">Lecture Exam #1 (CH 01 - CH 03)</option>
+                    <option value="exam2">Lecture Exam #2 (CH 04 - CH 06)</option>
+                    <option value="exam3">Lecture Exam #3 (CH 07 - CH 09)</option>
+                    <option value="exam4">Lecture Exam #4 (CH 10 - CH 12)</option>
+                </select>
+            </div>
+            <div class="segmented">
+                <button class="active" id="btnReset" onclick="resetFilters()">Reset All</button>
+            </div>
+        </section>
+
+        <!-- Chapter Modules Repository Section -->
+        <section class="notebook-section" id="chapters" style="margin-top: 2rem;">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">Interactive Repository</p>
+                    <h2>CHAPTER NOTEBOOKS & AI TUTORS</h2>
+                </div>
+            </div>
+
+            <div class="notebook-grid" id="notebookGrid">
+                <!-- Dynamically populated via JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer with Credits and Photo -->
+    <footer class="site-footer" id="credits">
+        <div>
+            <p class="footer-title">BIOL 2401 Anatomy & Physiology Repository</p>
+            <p style="margin-top: 0.35rem; font-size: 1.1rem;">
+                Built by <strong>Dr. Victor Garcia Martínez</strong>
+            </p>
+            <p style="font-size: 0.82rem; color: rgba(250, 247, 239, 0.68); margin-top: 0.25rem;">
+                Professor of Anatomy and Physiology | Lone Star College
+            </p>
+        </div>
+        <img src="data:image/jpeg;base64,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" alt="Dr. Victor Garcia Martínez" title="Dr. Victor Garcia Martínez">
+    </footer>
+
+    <!-- JavaScript logic -->
+    <script>
+        const chaptersData = [
+            {
+                id: "CH01",
+                number: 1,
+                unit: "exam1",
+                unitName: "Lecture Exam #1",
+                title: "CH01 - Introduction to AP",
+                description: "Explore the anatomical position, physiological variables, directional terms, abdominopelvic quadrants/regions, body planes, and homeostatic feedback mechanisms.",
+                sloUrl: "https://notebooklm.google.com/notebook/1c45a20c-218e-4fdb-a0d1-4516fcb55e8f",
+                tutorUrl: "https://gemini.google.com/notebook/4873541b-3194-498b-9538-409e186c93b3"
+            },
+            {
+                id: "CH02",
+                number: 2,
+                unit: "exam1",
+                unitName: "Lecture Exam #1",
+                title: "CH02 - Chemical Level of Organization",
+                description: "Master atoms, elements, compounds, enzymes, factors affecting enzyme activity, pH scale, acids, bases, buffers, dehydration synthesis, and hydrolysis.",
+                sloUrl: "https://notebooklm.google.com/notebook/54f3e3d4-bc70-4fce-8d02-0f23078f477c",
+                tutorUrl: "https://gemini.google.com/notebook/d100e232-4208-4f76-a769-2e0c97b74ba1"
+            },
+            {
+                id: "CH03",
+                number: 3,
+                unit: "exam1",
+                unitName: "Lecture Exam #1",
+                title: "CH03 - Cellular Level of Organization",
+                description: "Examine plasma membrane structure, active and passive transport mechanisms, cellular organelles, and stages of the cell life cycle including mitosis.",
+                sloUrl: "https://notebooklm.google.com/notebook/63a0c189-614b-42cf-9905-39fc142afe40",
+                tutorUrl: "https://gemini.google.com/notebook/ed60bc30-bb43-4666-ac04-9f965b0a16cb"
+            },
+            {
+                id: "CH04",
+                number: 4,
+                unit: "exam2",
+                unitName: "Lecture Exam #2",
+                title: "CH04 - Metabolism and Metabolic Reactions",
+                description: "Understand cellular respiration (glycolysis, Krebs cycle, ETC), aerobic vs. anaerobic pathways, DNA vs. RNA, transcription, translation, and protein synthesis.",
+                sloUrl: "https://notebooklm.google.com/notebook/62cdb31a-591b-4c33-a40f-65f565d0b08a",
+                tutorUrl: "https://gemini.google.com/notebook/ebae8bd3-d5c3-4d76-a6c0-dd4f69dd4c49"
+            },
+            {
+                id: "CH05",
+                number: 5,
+                unit: "exam2",
+                unitName: "Lecture Exam #2",
+                title: "CH05 - Tissues (Histology)",
+                description: "Study the four major tissue types (epithelial, connective, muscle, nervous), membrane classifications, histological features, and age-related tissue changes.",
+                sloUrl: "https://notebooklm.google.com/notebook/7910b721-6a53-4412-95ec-aee93ceb00ff",
+                tutorUrl: "https://gemini.google.com/notebook/8ca2e742-f082-472a-89da-297259e72359"
+            },
+            {
+                id: "CH06",
+                number: 6,
+                unit: "exam2",
+                unitName: "Lecture Exam #2",
+                title: "CH06 - Integumentary System",
+                description: "Analyze epidermal layers, thin vs. thick skin, accessory structures, subcutaneous layer, thermoregulation, burn classifications, and wound healing.",
+                sloUrl: "https://notebooklm.google.com/notebook/35398120-e1db-4147-8250-24aeb6584044",
+                tutorUrl: "https://gemini.google.com/notebook/21865fb9-92f7-44df-861b-5c700adb9b26"
+            },
+            {
+                id: "CH07",
+                number: 7,
+                unit: "exam3",
+                unitName: "Lecture Exam #3",
+                title: "CH07 - Skeletal System: Bones",
+                description: "Explore bone tissue histology, intramembranous and endochondral ossification, bone remodeling, calcium homeostasis, and axial/appendicular landmarks.",
+                sloUrl: "https://notebooklm.google.com/notebook/70559bf0-3e7a-4f6f-9a65-6933da0f96d0",
+                tutorUrl: "https://gemini.google.com/notebook/7fc29dca-be06-424d-ae12-4bb4338e8c0f"
+            },
+            {
+                id: "CH08",
+                number: 8,
+                unit: "exam3",
+                unitName: "Lecture Exam #3",
+                title: "CH08 - Skeletal System: Joints",
+                description: "Investigate structural and functional joint classifications, synovial joint anatomy, joint kinematics, levers, and biomechanical range of motion.",
+                sloUrl: "https://notebooklm.google.com/notebook/0825db27-6f0f-41d3-868b-18a03a6bdfd5",
+                tutorUrl: "https://gemini.google.com/notebook/8c5a1538-00ed-41ed-a415-dbf66ed59a08"
+            },
+            {
+                id: "CH09",
+                number: 9,
+                unit: "exam3",
+                unitName: "Lecture Exam #3",
+                title: "CH09 - Muscular System",
+                description: "Master skeletal muscle organization, neuromuscular junction mechanics, excitation-contraction coupling, sliding filament theory, and major muscle actions.",
+                sloUrl: "https://notebooklm.google.com/notebook/dfd88b10-17af-4d6a-97a2-0dc02dbe8575",
+                tutorUrl: "https://gemini.google.com/notebook/423daf5f-848e-4fcf-bc95-38fbcd9434c8"
+            },
+            {
+                id: "CH10",
+                number: 10,
+                unit: "exam4",
+                unitName: "Lecture Exam #4",
+                title: "CH10 - Nervous System: Overview",
+                description: "Study neuroglia, neuron histology, resting membrane potential, action potential ion currents, saltatory conduction, and neurotransmitter synapses.",
+                sloUrl: "https://notebooklm.google.com/notebook/645b9091-2f2f-4890-9f65-c78a2d219140",
+                tutorUrl: "https://gemini.google.com/notebook/12e7677f-368d-42d3-8354-f417429fb33e"
+            },
+            {
+                id: "CH11",
+                number: 11,
+                unit: "exam4",
+                unitName: "Lecture Exam #4",
+                title: "CH11 - Nervous System: Classification",
+                description: "Examine CNS and PNS divisions, brain structures, meninges, CSF circulation, spinal cord tracts, reflex arcs, and autonomic pathways.",
+                sloUrl: "https://notebooklm.google.com/notebook/20b1f0bc-85d6-4b2a-8a14-8a4ba661df03",
+                tutorUrl: "https://gemini.google.com/notebook/6a70ddcd-6ad4-4755-8ff1-0efe4eabda4f"
+            },
+            {
+                id: "CH12",
+                number: 12,
+                unit: "exam4",
+                unitName: "Lecture Exam #4",
+                title: "CH12 - Somatic and Special Senses",
+                description: "Understand sensory receptor physiology, somatic sensory/motor pathways, pain perception, and special senses mechanisms (vision, hearing, balance, smell, taste).",
+                sloUrl: "https://notebooklm.google.com/notebook/70cd223b-19db-4dd8-aa2f-9d5cbfc35d88",
+                tutorUrl: "https://gemini.google.com/notebook/0ed5e512-7970-44e1-987c-2874dba204d6"
+            }
+        ];
+
+        let completedSet = new Set(JSON.parse(localStorage.getItem('ap_completed_chapters') || '[]'));
+
+        function saveCompleted() {
+            localStorage.setItem('ap_completed_chapters', JSON.stringify(Array.from(completedSet)));
+            updateProgress();
+        }
+
+        function toggleComplete(chapId) {
+            if (completedSet.has(chapId)) {
+                completedSet.delete(chapId);
+            } else {
+                completedSet.add(chapId);
+            }
+            saveCompleted();
+            renderChapters();
+        }
+
+        function updateProgress() {
+            const total = chaptersData.length;
+            const completed = completedSet.size;
+            const percent = Math.round((completed / total) * 100);
+
+            document.getElementById('completedCount').innerText = completed;
+            document.getElementById('progressPercent').innerText = percent + '%';
+            document.getElementById('timePercent').innerText = percent + '%';
+            document.getElementById('progressBarFill').style.width = percent + '%';
+
+            const circumference = 301.59;
+            const offset = circumference - (percent / 100) * circumference;
+            document.getElementById('progressMeter').style.strokeDashoffset = offset;
+
+            const nextChap = chaptersData.find(c => !completedSet.has(c.id));
+            if (nextChap) {
+                document.getElementById('nextModuleText').innerText = 'Next: ' + nextChap.title;
+            } else {
+                document.getElementById('nextModuleText').innerText = 'All 12 Modules Mastered! 🎉';
+            }
+        }
+
+        function renderChapters() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            const resFilter = document.getElementById('resourceFilter').value;
+            const unitVal = document.getElementById('unitFilter').value;
+            const grid = document.getElementById('notebookGrid');
+
+            grid.innerHTML = '';
+
+            const filtered = chaptersData.filter(chap => {
+                const matchesSearch = chap.title.toLowerCase().includes(query) || 
+                                      chap.description.toLowerCase().includes(query) ||
+                                      chap.id.toLowerCase().includes(query) ||
+                                      chap.unitName.toLowerCase().includes(query);
+                const matchesUnit = (unitVal === 'all') || (chap.unit === unitVal);
+                return matchesSearch && matchesUnit;
+            });
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '<div class="empty-state">No matching chapters found. Try adjusting your search query or filter settings.</div>';
+                return;
+            }
+
+            filtered.forEach(chap => {
+                const isDone = completedSet.has(chap.id);
+                const card = document.createElement('article');
+                card.className = 'notebook-card' + (isDone ? ' done' : '');
+
+                let actionsHTML = '';
+                if (resFilter === 'all' || resFilter === 'slo') {
+                    actionsHTML += `
+                        <a href="${chap.sloUrl}" target="_blank" rel="noopener noreferrer" class="link-btn slo-btn">
+                            <span>1. SLO Custom Notebook (NotebookLM)</span>
+                            <span>➔</span>
+                        </a>
+                    `;
+                }
+                if (resFilter === 'all' || resFilter === 'tutor') {
+                    actionsHTML += `
+                        <a href="${chap.tutorUrl}" target="_blank" rel="noopener noreferrer" class="link-btn tutor-btn">
+                            <span>2. Study & Learn Tutor (Gemini AI)</span>
+                            <span>➔</span>
+                        </a>
+                    `;
+                }
+
+                card.innerHTML = `
+                    <div class="card-check-header">
+                        <span class="card-badge">${chap.unitName}</span>
+                        <label class="chapter-check">
+                            <input type="checkbox" ${isDone ? 'checked' : ''} onchange="toggleComplete('${chap.id}')">
+                            <span>${isDone ? 'Completed' : 'Mark Done'}</span>
+                        </label>
+                    </div>
+                    <h3>${chap.title}</h3>
+                    <p>${chap.description}</p>
+                    <div class="card-actions">
+                        ${actionsHTML}
+                    </div>
+                `;
+
+                grid.appendChild(card);
+            });
+        }
+
+        function filterType(type) {
+            document.getElementById('resourceFilter').value = type;
+            renderChapters();
+            document.getElementById('chapters').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function resetFilters() {
+            document.getElementById('searchInput').value = '';
+            document.getElementById('resourceFilter').value = 'all';
+            document.getElementById('unitFilter').value = 'all';
+            renderChapters();
+        }
+
+        function updateClock() {
+            const now = new Date();
+            const timeStr = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            const dateStr = now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+            
+            document.getElementById('liveClock').innerText = timeStr;
+            document.getElementById('liveDate').innerText = dateStr;
+        }
+
+        // Dynamic Fall 2026 Semester Schedule Transition
+        // Start: Mon, Aug 24, 2026 at 00:00:00 CST
+        // End: Tue, Dec 8, 2026 at 23:59:59 CST
+        const semStart = new Date('2026-08-24T00:00:00-05:00').getTime();
+        const semEnd = new Date('2026-12-08T23:59:59-05:00').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            let targetTime;
+            let noteText = "";
+            let kickerText = "";
+
+            if (now < semStart) {
+                // Phase 1: Counting down to August 24, 2026 (Semester Start)
+                targetTime = semStart;
+                kickerText = "Fall 2026 Semester Start";
+                noteText = "Countdown to Mon, Aug 24, 2026";
+            } else if (now <= semEnd) {
+                // Phase 2: Once August 24 is reached, automatically switches target to December 8, 2026 (Semester End)
+                targetTime = semEnd;
+                kickerText = "Fall 2026 Semester End";
+                noteText = "Countdown to Final Target: Tue, Dec 8, 2026";
+            } else {
+                // Phase 3: Post-December 8, 2026
+                document.getElementById('cdDays').innerText = "00";
+                document.getElementById('cdHours').innerText = "00";
+                document.getElementById('cdMins').innerText = "00";
+                document.getElementById('cdSecs').innerText = "00";
+                document.getElementById('timerNote').innerText = "Fall 2026 Semester Completed!";
+                document.getElementById('timerKicker').innerText = "Fall 2026 Complete";
+                return;
+            }
+
+            const diff = targetTime - now;
+            if (diff > 0) {
+                const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+                document.getElementById('cdDays').innerText = String(d).padStart(2, '0');
+                document.getElementById('cdHours').innerText = String(h).padStart(2, '0');
+                document.getElementById('cdMins').innerText = String(m).padStart(2, '0');
+                document.getElementById('cdSecs').innerText = String(s).padStart(2, '0');
+                document.getElementById('timerNote').innerText = noteText;
+                document.getElementById('timerKicker').innerText = kickerText;
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            renderChapters();
+            updateProgress();
+            updateClock();
+            updateCountdown();
+            setInterval(updateClock, 1000);
+            setInterval(updateCountdown, 1000);
+        });
+    </script>
+</body>
+</html>
