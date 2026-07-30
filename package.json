@@ -4,7 +4,7 @@
   "description": "BIOL 2401 Anatomy & Physiology - Student Notebook & Tutor Hub",
   "private": true,
   "scripts": {
-    "build": "echo 'Static site build complete'"
+    "build": "mkdir -p dist && cp index.html styles.css dist/ && cp -r public dist/"
   },
   "keywords": [
     "biology",
